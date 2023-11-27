@@ -27,7 +27,7 @@ TextureImporter:
       213: 6038967805712639019
     second: rightfoot
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -48,6 +48,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -86,7 +87,6 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
-  cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -143,20 +143,32 @@ TextureImporter:
       tessellationDetail: 0
       bones:
       - name: bone_1
+        guid: 
         position: {x: 168.4408, y: 391.51758, z: 0}
         rotation: {x: 0, y: 0, z: -0.87239736, w: 0.48879737}
         length: 180.1747
         parentId: -1
+        color:
+          serializedVersion: 2
+          rgba: 0
       - name: bone_2
+        guid: 
         position: {x: 180.17471, y: 0.000016538565, z: 0}
         rotation: {x: 0, y: 0, z: 0.20937249, w: 0.97783595}
         length: 123.3036
         parentId: 0
+        color:
+          serializedVersion: 2
+          rgba: 0
       - name: bone_3
+        guid: 
         position: {x: 123.3036, y: 0.0000034234656, z: 0}
         rotation: {x: 0, y: 0, z: 0.063710965, w: 0.99796844}
         length: 81.53513
         parentId: 1
+        color:
+          serializedVersion: 2
+          rgba: 0
       spriteID: fe74a664aa8d11460800000000000000
       internalID: 7210782704234285039
       vertices:
@@ -673,15 +685,23 @@ TextureImporter:
       tessellationDetail: 0
       bones:
       - name: bone_1
+        guid: 
         position: {x: 326.6996, y: 117.28516, z: 0}
         rotation: {x: 0, y: 0, z: 0.7311434, w: 0.6822238}
         length: 317.49243
         parentId: -1
+        color:
+          serializedVersion: 2
+          rgba: 0
       - name: bone_2
+        guid: 
         position: {x: 317.49243, y: -0.000026261718, z: 0}
         rotation: {x: 0, y: 0, z: -0.98061407, w: 0.1959493}
         length: 0.00013647873
         parentId: 0
+        color:
+          serializedVersion: 2
+          rgba: 0
       spriteID: 39630db0eec9c5690800000000000000
       internalID: -7612036723948636525
       vertices:
@@ -1292,10 +1312,14 @@ TextureImporter:
       tessellationDetail: 0
       bones:
       - name: bone_1
+        guid: 
         position: {x: 307.0197, y: 87.85968, z: 0}
         rotation: {x: 0, y: 0, z: 0.7038559, w: 0.7103428}
         length: 341.83456
         parentId: -1
+        color:
+          serializedVersion: 2
+          rgba: 0
       spriteID: d3e62ef94f383c3d0800000000000000
       internalID: -3187559024570503619
       vertices:
@@ -1875,20 +1899,32 @@ TextureImporter:
       tessellationDetail: 0
       bones:
       - name: bone_1
+        guid: 
         position: {x: 39.60742, y: 350.75, z: 0}
         rotation: {x: 0, y: 0, z: -0.5377127, w: 0.84312814}
         length: 148.71877
         parentId: -1
+        color:
+          serializedVersion: 2
+          rgba: 0
       - name: bone_2
+        guid: 
         position: {x: 148.71878, y: 0.000018230665, z: 0}
         rotation: {x: 0, y: 0, z: -0.19373208, w: 0.9810545}
         length: 69.06246
         parentId: 0
+        color:
+          serializedVersion: 2
+          rgba: 0
       - name: bone_3
+        guid: 
         position: {x: 69.06247, y: 0.00000039723813, z: 0}
         rotation: {x: 0, y: 0, z: 0.048219845, w: 0.99883676}
         length: 110.87316
         parentId: 1
+        color:
+          serializedVersion: 2
+          rgba: 0
       spriteID: a39f550afca32b670800000000000000
       internalID: 8552963305752623418
       vertices:
@@ -2360,20 +2396,32 @@ TextureImporter:
       tessellationDetail: 0
       bones:
       - name: bone_1
+        guid: 
         position: {x: 170.33551, y: 354.87726, z: 0}
         rotation: {x: 0, y: 0, z: -0.80170965, w: 0.59771365}
         length: 153.79028
         parentId: -1
+        color:
+          serializedVersion: 2
+          rgba: 0
       - name: bone_2
+        guid: 
         position: {x: 153.7903, y: -0.000023861026, z: 0}
         rotation: {x: 0, y: 0, z: 0.20545635, w: 0.9786663}
         length: 75.84893
         parentId: 0
+        color:
+          serializedVersion: 2
+          rgba: 0
       - name: bone_3
+        guid: 
         position: {x: 75.84894, y: -0.000011179707, z: 0}
         rotation: {x: 0, y: 0, z: 0.014146091, w: 0.9999}
         length: 82.49434
         parentId: 1
+        color:
+          serializedVersion: 2
+          rgba: 0
       spriteID: 03570fc95215454f0800000000000000
       internalID: -840958008422795984
       vertices:
@@ -2792,20 +2840,32 @@ TextureImporter:
       tessellationDetail: 0
       bones:
       - name: bone_1
+        guid: 
         position: {x: 119.02417, y: 323.5176, z: 0}
         rotation: {x: 0, y: 0, z: -0.5736976, w: 0.8190672}
         length: 110.11651
         parentId: -1
+        color:
+          serializedVersion: 2
+          rgba: 0
       - name: bone_2
+        guid: 
         position: {x: 110.11653, y: 0.000011428329, z: 0}
         rotation: {x: 0, y: 0, z: -0.2638953, w: 0.9645513}
         length: 102.099594
         parentId: 0
+        color:
+          serializedVersion: 2
+          rgba: 0
       - name: bone_3
+        guid: 
         position: {x: 102.09959, y: -0.0000075248954, z: 0}
         rotation: {x: 0, y: 0, z: 0.17710193, w: 0.98419255}
         length: 92.28485
         parentId: 1
+        color:
+          serializedVersion: 2
+          rgba: 0
       spriteID: b24a5853939bec350800000000000000
       internalID: 6038967805712639019
       vertices:
@@ -3228,6 +3288,13 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      righthand: 8552963305752623418
+      rightfoot: 6038967805712639019
+      leftfoot: -840958008422795984
+      head: -7612036723948636525
+      lefthand: 7210782704234285039
+      body: -3187559024570503619
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
