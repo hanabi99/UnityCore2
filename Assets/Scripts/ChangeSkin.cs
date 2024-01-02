@@ -52,7 +52,6 @@ public class ChangeSkin : MonoBehaviour
         #endregion
     }
 
-
     public void ChangeEquip(string category, string equipName)
     {
         if (equipDic.ContainsKey(category))

@@ -1,5 +1,6 @@
 ﻿using Spine;
 using Spine.Unity;
+using Spine.Unity.AttachmentTools;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -86,6 +87,34 @@ public class Lesson45 : MonoBehaviour
 
         #region 知识点六 在UI中使用
         //SkeletonGraphic（UnityUI）
+        //Spine换装
+        //public static void ReplaceAttachmentFromAtlas(this SkeletonRenderer skeletonRenderer, string slotName, SpineAtlasAsset atlasAsset, string regionName)
+        //{
+        //    var slot = skeletonRenderer.Skeleton.FindSlot(slotName);
+        //    var originalAttachment = slot.Attachment;
+        //    var atlas = atlasAsset.GetAtlas();
+        //    var region = atlas.FindRegion(regionName);
+        //    var scale = skeletonRenderer.skeletonDataAsset.scale;
+        //    if (originalAttachment != null)
+        //    {
+        //        slot.Attachment = originalAttachment.GetRemappedClone(region, true, true, scale);
+        //    }
+        //    else
+        //    {
+        //        var newRegionAttachment = region.ToRegionAttachment(region.name, scale);
+        //        slot.Attachment = newRegionAttachment;
+        //    }
+        //}
+
+        //Sprite直接换装
+        //public static RegionAttachment ReplaceAttachmentFromSprite(this Skeleton skeleton, string slotName, Sprite sprite, Shader shader, bool applyPMA, float rotation = 0f)
+        //{
+        //    RegionAttachment att = applyPMA ? sprite.ToRegionAttachmentPMAClone(shader, rotation: rotation) : sprite.ToRegionAttachment(new Material(shader), rotation: rotation);
+        //    skeleton.FindSlot(slotName).Attachment = att;
+        //    return att;
+        //}
+
+
         #endregion
     }
 

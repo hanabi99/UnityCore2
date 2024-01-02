@@ -20,15 +20,14 @@ MonoBehaviour:
       m_Hash: 640249298
       m_Sprite: {fileID: 9219245703381028968, guid: d032a300040270c43a4586102158efc0, type: 3}
     - m_Name: Super1
-      m_Hash: 1662912092
+      m_Hash: 589170268
       m_Sprite: {fileID: 2257589875373265797, guid: 5f8889522eee2f14e97a000e8ff60b0f, type: 3}
   - m_Name: Weapon
-    m_Hash: 1855955664
+    m_Hash: 782213840
     m_CategoryList:
     - m_Name: Normal
       m_Hash: 640249298
       m_Sprite: {fileID: 814093114231540116, guid: d032a300040270c43a4586102158efc0, type: 3}
     - m_Name: Super1
-      m_Hash: 1662912092
+      m_Hash: 589170268
       m_Sprite: {fileID: -3755478239642218106, guid: 1aa850bc71d56a0459e05430667acb75, type: 3}
-  m_ModificationHash: 0
