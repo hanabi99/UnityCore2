@@ -1,0 +1,33 @@
+ManifestFileVersion: 0
+CRC: 610752410
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 689d4c35455b3f7afe6ad1d6c80ff648
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 98f10929cdac7bf178c2c8348468bcf7
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 65
+  Script: {instanceID: 0}
+- Class: 135
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/M/Cube.prefab
+- Assets/M/Sphere.prefab
+Dependencies:
+- F:/UnityCore2/AssetBundles/ArtRes/PC/m

@@ -1,0 +1,35 @@
+ManifestFileVersion: 0
+CRC: 2969571163
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 40dbdbef59780615fcf7b5afaf1b86c9
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: c0eecbdb40c88860a0d1216636f2aafd
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 57c008f954fe54a8bb972de1018a2cb8, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 212
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/M/PSB/Monster1.psb
+- Assets/M/PSB/Monster2.psb
+- Assets/M/PSB/Gabarit.psb
+Dependencies: []

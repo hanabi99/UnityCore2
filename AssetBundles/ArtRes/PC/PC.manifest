@@ -1,11 +1,10 @@
 ManifestFileVersion: 0
-CRC: 2285629563
+CRC: 2659838247
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
       Name: m
-      Dependencies:
-        Dependency_0: texture
+      Dependencies: {}
     Info_1:
       Name: psb
       Dependencies: {}
@@ -13,6 +12,3 @@ AssetBundleManifest:
       Name: model
       Dependencies:
         Dependency_0: m
-    Info_3:
-      Name: texture
-      Dependencies: {}

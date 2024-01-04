@@ -1,0 +1,21 @@
+ManifestFileVersion: 0
+CRC: 1875757427
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: e1b3ed3298ce451a88fb008e19e811eb
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 5651999fa58938ac55fc849c3d2539bc
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/M/Player.mat
+- Assets/M/Ground.mat
+- Assets/M/Enemy.mat
+Dependencies: []
