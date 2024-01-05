@@ -105,7 +105,7 @@ namespace MyGameFrameWork
         public AssetBundleObject LoadAB(string abname)
         {
             AssetBundleObject abObj = null;
-            //判断字典里是否有改AB包
+            //判断字典里是否有该AB包
             if (_loadedABList.ContainsKey(abname))
             {
                 abObj = _loadedABList[abname];
