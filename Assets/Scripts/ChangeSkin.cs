@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Experimental.U2D.Animation;
+
 using UnityEngine.U2D.Animation;
 
 public class ChangeSkin : MonoBehaviour
@@ -13,30 +13,30 @@ public class ChangeSkin : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        #region ÖªÊ¶µãÒ» ÈçºÎÔÚÍ¬Ò»¸öpsbÎÄ¼þÖÐÖÆ×÷»»×°×ÊÔ´
-        //1.ÔÚpsÖÐÖÆ×÷ÃÀÊõ×ÊÔ´Ê±£¬½«Ò»¸öÓÎÏ·¶ÔÏóµÄËùÓÐ»»×°×ÊÔ´¶¼°Ú·ÅºÃÎ»ÖÃ
-        //2.µ±ÎÒÃÇµ¼Èë¸Ã×ÊÔ´Ê±£¬Òª×¢ÒâÊÇ·ñµ¼ÈëÒþ²ØµÄÍ¼²ã
+        #region ÖªÊ¶ï¿½ï¿½Ò» ï¿½ï¿½ï¿½ï¿½ï¿½Í¬Ò»ï¿½ï¿½psbï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×°ï¿½ï¿½Ô´
+        //1.ï¿½ï¿½psï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ê±ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð»ï¿½×°ï¿½ï¿½Ô´ï¿½ï¿½ï¿½Ú·Åºï¿½Î»ï¿½ï¿½
+        //2.ï¿½ï¿½ï¿½ï¿½ï¿½Çµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ê±ï¿½ï¿½Òª×¢ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Øµï¿½Í¼ï¿½ï¿½
         #endregion
 
-        #region ÖªÊ¶µã¶þ ±à¼­»»×°×ÊÔ´µÄ¹Ç÷ÀÐÅÏ¢ÒÔ¼°·Ö×éÀà±ð
-        //×¢ÒâÊÂÏî£º
-        //Ã¿¸ö²¿Î» ¹ØÁªµÄ¹Ç÷ÀÒªÃ÷È·ÉèÖÃ
-        //ÎªÍ¬Ò»¸ö²¿Î»µÄ²»Í¬×°±¸·Ö×é
+        #region ÖªÊ¶ï¿½ï¿½ï¿½ ï¿½à¼­ï¿½ï¿½×°ï¿½ï¿½Ô´ï¿½Ä¹ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½Ô¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        //×¢ï¿½ï¿½ï¿½ï¿½ï¿½î£º
+        //Ã¿ï¿½ï¿½ï¿½ï¿½Î» ï¿½ï¿½ï¿½ï¿½ï¿½Ä¹ï¿½ï¿½ï¿½Òªï¿½ï¿½È·ï¿½ï¿½ï¿½ï¿½
+        //ÎªÍ¬Ò»ï¿½ï¿½ï¿½ï¿½Î»ï¿½Ä²ï¿½Í¬×°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         #endregion
 
-        #region ÖªÊ¶µãÈý ÈçºÎ»»×°
-        //Á½¸ö¹Ø¼ü×é¼þ
-        //SpriteLibrary¡ª¡ª¾«Áé×ÊÁÏ¿â£¬È·¶¨Àà±ð·Ö×éÐÅÏ¢
-        //SpriteResolver¡ª¡ª¾«Áé½âËãÆ÷£¬ÓÃÓÚÈ·¶¨²¿Î»Àà±ðºÍÊ¹ÓÃµÄÍ¼Æ¬
-        //Ò»¸öÊý¾ÝÎÄ¼þ
-        //SpriteLibraryAsset¡ª¡ª¾«Áé×ÊÁÏ¿â×ÊÔ´£¬¾ßÌå¼ÇÂ¼Àà±ð·Ö×éÐÅÏ¢µÄÎÄ¼þ
+        #region ÖªÊ¶ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Î»ï¿½×°
+        //ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ï¿½ï¿½ï¿½
+        //SpriteLibraryï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿â£¬È·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+        //SpriteResolverï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½Ãµï¿½Í¼Æ¬
+        //Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½
+        //SpriteLibraryAssetï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½Ô´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½Ä¼ï¿½
         #endregion
 
-        #region ÖªÊ¶µãËÄ ´úÂë»»×°
-        //1.»ñÈ¡¸÷²¿Î»µÄSpriteResolver£¨ÐèÒªÒýÓÃÃüÃû¿Õ¼ä£©
-        //2.Ê¹ÓÃSpriteResolverµÄAPI½øÐÐ×°±¸ÇÐ»»
-        //GetCategory() »ñÈ¡µ±Ç°²¿Î»Ä¬ÈÏµÄÀà±ðÃû
-        //SetCategoryAndLabel ÉèÖÃµ±Ç°²¿Î»ÏëÒªÇÐ»»µÄÍ¼Æ¬ÐÅÏ¢
+        #region ÖªÊ¶ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ë»»×°
+        //1.ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½SpriteResolverï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ¼ä£©
+        //2.Ê¹ï¿½ï¿½SpriteResolverï¿½ï¿½APIï¿½ï¿½ï¿½ï¿½×°ï¿½ï¿½ï¿½Ð»ï¿½
+        //GetCategory() ï¿½ï¿½È¡ï¿½ï¿½Ç°ï¿½ï¿½Î»Ä¬ï¿½Ïµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        //SetCategoryAndLabel ï¿½ï¿½ï¿½Ãµï¿½Ç°ï¿½ï¿½Î»ï¿½ï¿½Òªï¿½Ð»ï¿½ï¿½ï¿½Í¼Æ¬ï¿½ï¿½Ï¢
         //sr.SetCategoryAndLabel(sr.GetCategory(), "CASK 1");
 
         SpriteResolver[] srs = this.GetComponentsInChildren<SpriteResolver>();
