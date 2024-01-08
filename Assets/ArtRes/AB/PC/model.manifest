@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1364804882
+CRC: 1213245932
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 16c5053119b06d28622bb9a275644d8a
+    Hash: a42fbab9969a05f6ccbb452be83da6ce
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 98f10929cdac7bf178c2c8348468bcf7
+    Hash: 1eff53d114720a95b67621a8bf3d0e92
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -30,4 +30,4 @@ Assets:
 - Assets/M/Cube.prefab
 - Assets/M/Sphere.prefab
 Dependencies:
-- F:/UnityCore2/Assets/ArtRes/AB/PC/m
+- E:/FORK/UnityCore2/Assets/ArtRes/AB/PC/m

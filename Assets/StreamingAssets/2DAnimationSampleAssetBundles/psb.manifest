@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 2969571163
+CRC: 2985673245
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 10be82ffb4b92374c9326139452ac959
+    Hash: d86fbc7551d43497832335ad410a8f59
   TypeTreeHash:
     serializedVersion: 2
-    Hash: c0eecbdb40c88860a0d1216636f2aafd
+    Hash: 2df91224681fd800372b9f192baeab5c
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -21,13 +21,17 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 114
   Script: {fileID: 11500000, guid: 57c008f954fe54a8bb972de1018a2cb8, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: ec8da9418a6bf493e93ef4c7b7575847, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 212
   Script: {instanceID: 0}
 - Class: 213
   Script: {instanceID: 0}
-SerializeReferenceClassIdentifiers: []
+SerializeReferenceClassIdentifiers:
+- AssemblyName: UnityEngine.CoreModule
+  ClassName: UnityEngine.U2D.SpriteBone
 Assets:
 - Assets/M/PSB/Monster1.psb
 - Assets/M/PSB/Monster2.psb

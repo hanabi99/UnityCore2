@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 2503482363
+CRC: 4108002743
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 007dcc8ea86025ff696a05b24c027d33
+    Hash: 1552c0179a0faabc483472c4c440fa3b
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 939e20ecac0e95a3f7c5cfb3e57acb1d
+    Hash: 82515b3694a1e5beae009c48c1198c34
 HashAppended: 0
 ClassTypes:
 - Class: 21
@@ -21,4 +21,4 @@ Assets:
 - Assets/M/Ground.mat
 - Assets/M/Enemy.mat
 Dependencies:
-- F:/UnityCore2/Assets/ArtRes/AB/PC/texture
+- E:/FORK/UnityCore2/Assets/ArtRes/AB/PC/texture
