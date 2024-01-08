@@ -26,6 +26,10 @@ public class RedDotSystem : Singleton<RedDotSystem>
     /// </summary>
     public void UpdateRedDotState(RedDotDefine redKey)
     {
+        if(redKey == RedDotDefine.None)
+        {
+            return;
+        }
         RedDotTreeNode redDotTreeNode = null;
         if (redDotDic.TryGetValue(redKey, out redDotTreeNode))
         {
@@ -63,6 +67,41 @@ public class RedDotSystem : Singleton<RedDotSystem>
         else
         {
             Debug.LogError(redKey.ToString() + ": key不存在");
+        }
+    }
+    /// <summary>
+    /// 获取节点红点个数
+    /// </summary>
+    /// <param name="redKey"></param>
+    /// <param name="childRedDotCount"></param>
+    public int  GetChildNodeRedDotCount(RedDotDefine redKey)
+    {
+        int childRedDotCount = 0;
+        ComputeChildRedDotCount(redKey, ref childRedDotCount);
+        return childRedDotCount;
+
+    }
+    /// <summary>
+    /// 计算节点红点个数(递归函数)
+    /// </summary>
+    /// <param name="redKey"></param>
+    /// <param name="childRedDotCount"></param>
+    private void ComputeChildRedDotCount(RedDotDefine redKey,ref int  childRedDotCount)
+    {
+        foreach (RedDotTreeNode item in redDotDic.Values)
+        {
+            if(item.parentNode == redKey)
+            {
+                item.RefreshRedDotState();
+                if (item.redDotActive)
+                {
+                    childRedDotCount += item.redDotCount;
+                    if (item.nodeType != RedDotTreeNodeType.ReDotNodeDataNum)
+                    {
+                        ComputeChildRedDotCount(item.node,ref childRedDotCount);
+                    }
+                }
+            }
         }
     }
 }
