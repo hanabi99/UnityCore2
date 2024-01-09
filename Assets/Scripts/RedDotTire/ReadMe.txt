@@ -1,0 +1,3 @@
+RedNodeDefine 是两个实现方式的公用脚本 代表着RedNode的名字定义
+RedDotTire（RedPointSysytem）是字典树的直观实现
+决定暂时搁置因为这样的方法 不如RedDotSystem

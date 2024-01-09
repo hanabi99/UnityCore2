@@ -7,7 +7,7 @@ namespace MyGameFrameWork
 {
     public enum EventCenterEventType
     {
-
+       RedDotChangeUI
     }
     public interface IEventCallBack
     {
@@ -32,6 +32,13 @@ namespace MyGameFrameWork
             get
             {
                 return ArgsArray[1];
+            }
+        }
+        public object Args2
+        {
+            get
+            {
+                return ArgsArray[2];
             }
         }
         public EventArgs(EventCenterEventType et, params object[] dataParam)

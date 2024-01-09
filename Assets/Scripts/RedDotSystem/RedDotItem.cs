@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using MyGameFrameWork;
 
 public class RedDotItem : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class RedDotItem : MonoBehaviour
     void Start()
     {
         RedDotSystem.GetInstance().RegisterRedDotChangeEvent(redKey, RedDotStateChangeEvent);
+        //MyGameFrameWork.EventCenter.GetInstance().AddEventListener(EventCenterEventType.RedDotChangeUI, RedDotStateChangeEvent);
         RedDotSystem.GetInstance().UpdateRedDotState(redKey);
     }
 

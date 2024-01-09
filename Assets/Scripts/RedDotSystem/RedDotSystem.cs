@@ -2,16 +2,17 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using MyGameFrameWork;
 
 public class RedDotSystem : Singleton<RedDotSystem>
 {
     /// <summary>
-    /// 红点字典
+    /// 红点字典 记录所有的红点
     /// </summary>
     public Dictionary<RedDotDefine, RedDotTreeNode> redDotDic = new Dictionary<RedDotDefine, RedDotTreeNode>();
 
     /// <summary>
-    /// 初始化红点数
+    /// 初始化红点数 
     /// </summary>
     public void InitRedDotTree(List<RedDotTreeNode> nodeList)
     {
@@ -74,7 +75,7 @@ public class RedDotSystem : Singleton<RedDotSystem>
     /// </summary>
     /// <param name="redKey"></param>
     /// <param name="childRedDotCount"></param>
-    public int  GetChildNodeRedDotCount(RedDotDefine redKey)
+    public int GetChildNodeRedDotCount(RedDotDefine redKey)
     {
         int childRedDotCount = 0;
         ComputeChildRedDotCount(redKey, ref childRedDotCount);

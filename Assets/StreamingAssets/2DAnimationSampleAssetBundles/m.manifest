@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 2247018969
+CRC: 2503482363
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 697caa1fb73d35248fa647a5d2282224
+    Hash: 23dd77d25f2cbac9fe0c265ed9c75132
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 82515b3694a1e5beae009c48c1198c34
+    Hash: 939e20ecac0e95a3f7c5cfb3e57acb1d
 HashAppended: 0
 ClassTypes:
 - Class: 21
@@ -21,4 +21,4 @@ Assets:
 - Assets/M/Ground.mat
 - Assets/M/Enemy.mat
 Dependencies:
-- E:/FORK/UnityCore2/Assets/StreamingAssets/2DAnimationSampleAssetBundles/texture
+- F:/UnityCore2/Assets/StreamingAssets/2DAnimationSampleAssetBundles/texture

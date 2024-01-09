@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 2765327579
+CRC: 1364804882
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: f511a8fdf7e13b3bc34ec4e7148fe3ed
+    Hash: 7b37f8f742fccd0616c4a268a1906412
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 1eff53d114720a95b67621a8bf3d0e92
+    Hash: 98f10929cdac7bf178c2c8348468bcf7
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -30,4 +30,4 @@ Assets:
 - Assets/M/Cube.prefab
 - Assets/M/Sphere.prefab
 Dependencies:
-- E:/FORK/UnityCore2/Assets/StreamingAssets/2DAnimationSampleAssetBundles/m
+- F:/UnityCore2/Assets/StreamingAssets/2DAnimationSampleAssetBundles/m
