@@ -5,5 +5,7 @@ using UnityEngine;
 public enum RedDotDefine
 {
     None,
-    Shop
+    StoreRoot,
+    Store_Coin,
+    Store_Diamand
 }

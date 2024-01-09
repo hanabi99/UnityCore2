@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using UnityEngine.XR;
 
 namespace MyGameFrameWork {
     public abstract class BasePanel : MonoBehaviour
