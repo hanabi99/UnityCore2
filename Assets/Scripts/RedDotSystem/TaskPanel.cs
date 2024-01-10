@@ -47,12 +47,16 @@ public class TaskPanel : MyGameFrameWork.BasePanel
                 TaskWindow.SetActive(true);
                 break;
             case "box1Btn":
-               
+                RedDotData.Task_Box1_isRead = true;
+                RedDotSystem.GetInstance().UpdateRedDotState(RedDotDefine.Task_Box1);
                 break;
             case "box2Btn":
+                RedDotData.Task_Box2_isRead = true;
+                RedDotSystem.GetInstance().UpdateRedDotState(RedDotDefine.Task_Box2);
                 break;
             case "box3Btn":
-
+                RedDotData.Task_Box3_isRead = true;
+                RedDotSystem.GetInstance().UpdateRedDotState(RedDotDefine.Task_Box3);
                 break;
             case "closeBtn":
                 TaskWindow.SetActive(false);
@@ -76,7 +80,6 @@ public class TaskPanel : MyGameFrameWork.BasePanel
     {
         redDotNode.redDotActive = RedDotData.Task_Box1_isRead == false;
         Debug.Log("OnTaskBox1RedDotLogicHandler:" + redDotNode.redDotActive);
-
     }
     public void OnTaskBox2RedDotLogicHandler(RedDotTreeNode redDotNode)
     {
@@ -88,6 +91,4 @@ public class TaskPanel : MyGameFrameWork.BasePanel
         redDotNode.redDotActive = RedDotData.Task_Box3_isRead == false;
         Debug.Log("OnTaskBox3RedDotLogicHandler:" + redDotNode.redDotActive);
     }
-
-
 }

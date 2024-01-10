@@ -1,7 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+public class BagData
+{
+    public int id;
+    public int count;
+    public bool isRead;
+}
 public class RedDotData {
     //ÉÌ³Ç
     public static bool Store_Gold_isRead = false;
@@ -16,6 +21,8 @@ public class RedDotData {
     public static bool Task_Box2_isRead = false;
 
     public static bool Task_Box3_isRead = false;
+    //±³°ü
 
+    public static List<BagData> bagRedItems = new List<BagData>();
 
 }

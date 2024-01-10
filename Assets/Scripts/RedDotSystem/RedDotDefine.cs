@@ -14,4 +14,6 @@ public enum RedDotDefine
     Task_Box1,
     Task_Box2,
     Task_Box3,
+    //±³°ü
+    BagRoot
 }

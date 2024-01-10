@@ -63,6 +63,14 @@ namespace MyGameFrameWork {
 
         }
         /// <summary>
+        /// 适用于多按钮
+        /// </summary>
+        /// <param name="btnName"></param>
+        protected virtual void OnClick(int btnIndex)
+        {
+
+        }
+        /// <summary>
         /// 适用于多Toggel
         /// </summary>
         /// <param name="btnName"></param>
