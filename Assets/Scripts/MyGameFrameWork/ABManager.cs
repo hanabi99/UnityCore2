@@ -34,7 +34,7 @@ namespace MyGameFrameWork
 #if UNITY_IOS
             return "IOS";
 #elif UNITY_ANDROID
-            return "Android"
+            return "Android";
 #else
                 return "PC";
 #endif
@@ -164,10 +164,7 @@ namespace MyGameFrameWork
         {
             LoadAB(abname);
             Object obj = _loadedABList[abname]._ab.LoadAsset(resName);
-            if (obj is GameObject)
-                return Instantiate(obj);
-            else
-                return obj;
+            return obj;
         }
         /// <summary>
         /// 同步加载 typeof
@@ -179,12 +176,8 @@ namespace MyGameFrameWork
         public Object LoadRes(string abname, string resName, System.Type type)
         {
             LoadAB(abname);
-
             Object obj = _loadedABList[abname]._ab.LoadAsset(resName, type);
-            if (obj is GameObject)
-                return Instantiate(obj);
-            else
-                return obj;
+            return obj;
 
         }
 
@@ -199,11 +192,7 @@ namespace MyGameFrameWork
         {
             LoadAB(abname);
             T obj = _loadedABList[abname]._ab.LoadAsset<T>(resName);
-            if (obj is GameObject)
-                return Instantiate(obj);
-            else
-                return obj;
-
+            return obj;
         }
 
         /// <summary>
@@ -223,7 +212,7 @@ namespace MyGameFrameWork
             yield return abr;
 
             if (abr.asset is GameObject)
-                callback(Instantiate(abr.asset));
+                callback(abr.asset);
             else
                 callback(abr.asset);
         }
@@ -269,7 +258,7 @@ namespace MyGameFrameWork
             yield return abr;
 
             if (abr.asset is GameObject)
-                callback(Instantiate(abr.asset) as T);
+                callback(abr.asset as T);
             else
                 callback(abr.asset as T);
 

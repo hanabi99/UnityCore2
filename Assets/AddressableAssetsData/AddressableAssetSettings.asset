@@ -80,6 +80,7 @@ MonoBehaviour:
   m_LabelTable:
     m_LabelNames:
     - default
+    - Obj
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: d19c4692ec20a5e4c8c50d299c0ebf12, type: 2}
@@ -110,7 +111,7 @@ MonoBehaviour:
           m_Key: HostingServiceUploadSpeed
         - m_AssemblyName: mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
           m_ClassName: System.String
-          m_Data: Library/com.unity.addressables/aa/Windows/StandaloneWindows64
+          m_Data: Library/com.unity.addressables/aa/Windows/StandaloneWindows
           m_Key: ContentRoot
         - m_AssemblyName: mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
           m_ClassName: System.Boolean
