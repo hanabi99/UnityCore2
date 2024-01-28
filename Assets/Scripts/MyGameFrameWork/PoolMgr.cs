@@ -33,7 +33,7 @@ namespace MyGameFrameWork
 
         public void PushObj(GameObject asset, Action<GameObject> action = null)
         {
-            string poolname = asset.name + "Pool";
+            string poolname = asset.name + "(Clone)" + "Pool";
             if (PoolDic.ContainsKey(poolname))
             {
                  PoolDic[poolname].PushObj(asset);

@@ -10,12 +10,11 @@ public class WindowBehaviour
     public string name { get; set; }
     public bool isActive { get; set; }
 
-    public virtual void OnAwake() { }
-    public virtual void OnEnable() { }
+    public virtual void Init() { }
+    public virtual void ShowMe() { }
     public virtual void OnUpdate() { }
-    public virtual void OnDisable() { }
+    public virtual void HideMe() { }
     public virtual void OnDestroy() { }
-
     public virtual void SetActive() { }
 
 

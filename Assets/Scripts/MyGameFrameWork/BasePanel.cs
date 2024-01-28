@@ -5,14 +5,17 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace MyGameFrameWork {
-    public abstract class BasePanel : MonoBehaviour
+    public  class BasePanel : MonoBehaviour
     {
         //父节点
         [HideInInspector]
         public BasePanel myParentPanel;
         //是否初始化
         public bool IsInitialized = false;
-        public abstract void Init();
+        public virtual void Init()
+        {
+
+        }
 
         public void RigisterPanel(BasePanel basePanel)
         {
