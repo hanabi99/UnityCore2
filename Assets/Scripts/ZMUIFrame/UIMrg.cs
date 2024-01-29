@@ -86,6 +86,24 @@ public class UIMrg : Singleton<UIMrg>
         }
         return null;
     }
+    /// <summary>
+    /// 获取已经弹出的弹窗
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <returns></returns>
+    public T GetWindow<T>() where T : WindowBase
+    {
+        System.Type type = typeof(T);
+        foreach (var item in mVisibleWindowList)
+        {
+            if (item.name == type.Name)
+            {
+                return (T)item;
+            }
+        }
+        Debug.LogError("该窗口没有获取到：" + type.Name);
+        return null;
+    }
 
     private WindowBase ShowWindow(string winName)
     {
@@ -108,7 +126,7 @@ public class UIMrg : Singleton<UIMrg>
             Debug.LogError(winName + " 窗口不存在");
         return null;
     }
-    public GameObject TempLoadWindow(string wndName)
+     private GameObject TempLoadWindow(string wndName)
     {
         //自己搞时要改成AB或者Adreesable
         GameObject window = GameObject.Instantiate<GameObject>(Resources.Load<GameObject>("Window/" + wndName), mUIRoot);

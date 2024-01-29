@@ -25,6 +25,7 @@ public class LoginWIndow : WindowBase
     public override void ShowMe()
     {
         base.ShowMe();
+        Debug.Log("显示UI");
     }
     //物体隐藏时执行
     public override void HideMe()
