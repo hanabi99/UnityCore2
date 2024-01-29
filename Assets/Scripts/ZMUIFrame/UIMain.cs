@@ -8,6 +8,13 @@ public class UIMain : MonoBehaviour
     {
         UIMrg.GetInstance().Initialize();
         UIMrg.GetInstance().PopUpWindow<LoginWIndow>();
+        UIMrg.GetInstance().GetWindow<LoginWIndow>().Test();
     }
-    
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            UIMrg.GetInstance().HideWindow<LoginWIndow>();
+        }
+    }
 }

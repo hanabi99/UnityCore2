@@ -118,7 +118,6 @@ public class UIMrg : Singleton<UIMrg>
                 window.SetActive(true);
                 //SetWidnowMaskVisible();
                 window.ShowMe();
-
             }
             return window;
         }
@@ -126,7 +125,38 @@ public class UIMrg : Singleton<UIMrg>
             Debug.LogError(winName + " 窗口不存在");
         return null;
     }
-     private GameObject TempLoadWindow(string wndName)
+    public void HideWindow(string wndName)
+    {
+        WindowBase window = GetWindow(wndName);
+        HideWindow(window);
+    }
+    /// <summary>
+    /// 隐藏界面
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    public void HideWindow<T>() where T : WindowBase
+    {
+        HideWindow(typeof(T).Name);
+    }
+    private void HideWindow(WindowBase window)
+    {
+        if (window != null && window.isActive)
+        {
+            mVisibleWindowList.Remove(window);
+            window.SetActive(false);//隐藏弹窗物体
+            //SetWidnowMaskVisible();
+            window.HideMe();
+        }
+        //在出栈的情况下，上一个界面隐藏时，自动打开栈种的下一个界面
+        //PopNextStackWindow(window);
+    }
+
+    /// <summary>
+    /// 实例化界面
+    /// </summary>
+    /// <param name="wndName"></param>
+    /// <returns></returns>
+    private GameObject TempLoadWindow(string wndName)
     {
         //自己搞时要改成AB或者Adreesable
         GameObject window = GameObject.Instantiate<GameObject>(Resources.Load<GameObject>("Window/" + wndName), mUIRoot);

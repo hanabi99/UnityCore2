@@ -121,6 +121,7 @@ public class WindowBase : WindowBehaviour
     {
         base.SetActive(Active);
         gameObject.SetActive(Active);
+        isActive = Active;
     }
     public override void OnDestroy()
     {

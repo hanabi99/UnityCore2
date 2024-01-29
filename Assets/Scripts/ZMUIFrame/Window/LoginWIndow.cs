@@ -48,4 +48,9 @@ public class LoginWIndow : WindowBase
         //HideWindow();
     }
     #endregion
+
+    public void Test()
+    {
+        Debug.Log("test");
+    }
 }
