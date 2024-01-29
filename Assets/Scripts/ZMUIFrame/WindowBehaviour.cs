@@ -1,8 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class WindowBehaviour 
+public class WindowBehaviour
 {
     public GameObject gameObject { get; set; }
     public Transform transform { get; set; }
@@ -15,8 +14,7 @@ public class WindowBehaviour
     public virtual void OnUpdate() { }
     public virtual void HideMe() { }
     public virtual void OnDestroy() { }
-    public virtual void SetActive() { }
-
-
+    public virtual void SetActive(bool Active) { }
 
 }
+

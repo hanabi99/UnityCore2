@@ -46,7 +46,7 @@ public class WindowBase : WindowBehaviour
             toggle.onValueChanged.RemoveAllListeners();
             toggle.onValueChanged.AddListener((isOn) =>
             {
-                action?.Invoke(isOn,toggle);
+                action?.Invoke(isOn, toggle);
             });
         }
     }
@@ -116,6 +116,12 @@ public class WindowBase : WindowBehaviour
     {
         base.HideMe();
     }
+
+    public override void SetActive(bool Active)
+    {
+        base.SetActive(Active);
+        gameObject.SetActive(Active);
+    }
     public override void OnDestroy()
     {
         base.OnDestroy();
@@ -127,3 +133,4 @@ public class WindowBase : WindowBehaviour
         mInputFieldList.Clear();
     }
 }
+
