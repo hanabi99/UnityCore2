@@ -125,7 +125,8 @@ public class UIMrg : Singleton<UIMrg>
             Debug.LogError(winName + " 窗口不存在");
         return null;
     }
-    public void HideWindow(string wndName)
+
+    private void HideWindow(string wndName)
     {
         WindowBase window = GetWindow(wndName);
         HideWindow(window);
@@ -150,6 +151,52 @@ public class UIMrg : Singleton<UIMrg>
         //在出栈的情况下，上一个界面隐藏时，自动打开栈种的下一个界面
         //PopNextStackWindow(window);
     }
+    private void DestroyWindow(string wndName)
+    {
+        WindowBase window = GetWindow(wndName);
+        DestoryWindow(window);
+    }
+    public void DestroyWinodw<T>() where T : WindowBase
+    {
+        DestroyWindow(typeof(T).Name);
+    }
+    private void DestoryWindow(WindowBase window)
+    {
+        if (window != null)
+        {
+            if (mAllWindowDic.ContainsKey(window.name))
+            {
+                mAllWindowDic.Remove(window.name);
+                mAllWindowList.Remove(window);
+                mVisibleWindowList.Remove(window);
+            }
+            window.SetActive(false);
+            //SetWidnowMaskVisible();
+            window.HideMe();
+            window.OnDestroy();
+            GameObject.Destroy(window.gameObject);
+            //在出栈的情况下，上一个界面销毁时，自动打开栈种的下一个界面
+            //PopNextStackWindow(window);
+        }
+    }
+    /// <summary>
+    /// 处过滤窗口外 其他窗口全部销毁
+    /// </summary>
+    /// <param name="filterlist"></param>
+    public void DestroyAllWindow(List<string> filterlist = null)
+    {
+        for (int i = mAllWindowList.Count - 1; i >= 0; i--)
+        {
+            WindowBase window = mAllWindowList[i];
+            if (window == null || (filterlist != null && filterlist.Contains(window.name)))
+            {
+                continue;
+            }
+            DestroyWindow(window.name);
+        }
+        Resources.UnloadUnusedAssets();
+    }
+
 
     /// <summary>
     /// 实例化界面

@@ -15,6 +15,10 @@ public class UIMain : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             UIMrg.GetInstance().HideWindow<LoginWIndow>();
+            //UIMrg.GetInstance().DestroyWinodw<LoginWIndow>();
+            //UIMrg.GetInstance().DestroyAllWindow();
+           //Debug.Log (UISetting.Instance.SINGMASK_SYSTEM);
+
         }
     }
 }

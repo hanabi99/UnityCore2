@@ -13,6 +13,23 @@ public class WindowBase : WindowBehaviour
 
     private List<InputField> mInputFieldList = new List<InputField>();
 
+    private CanvasGroup mUIMask;
+
+    private CanvasGroup mCanvasGroup;
+
+    protected Transform mUIContent;
+
+    /// <summary>
+    /// 初始化基类组件
+    /// </summary>
+    private void InitializeBaseComponent()
+    {
+        mCanvasGroup = transform.GetComponent<CanvasGroup>();
+        mUIMask = transform.Find("UIMask").GetComponent<CanvasGroup>();
+        mUIContent = transform.Find("UIContent").transform;
+    }
+
+
     /// <summary>
     /// 按钮添加事件
     /// </summary>
@@ -103,6 +120,7 @@ public class WindowBase : WindowBehaviour
     public override void Init()
     {
         base.Init();
+        InitializeBaseComponent();
     }
     public override void ShowMe()
     {
@@ -120,8 +138,18 @@ public class WindowBase : WindowBehaviour
     public override void SetActive(bool Active)
     {
         base.SetActive(Active);
-        gameObject.SetActive(Active);
+        //gameObject.SetActive(Active);
+        mCanvasGroup.alpha = Active ? 1 : 0;
+        mCanvasGroup.blocksRaycasts = Active;
         isActive = Active;
+    }
+    public void SetMaskVisible(bool isVisble)
+    {
+        if (!UISetting.Instance.SINGMASK_SYSTEM)
+        {
+            return;
+        }
+        mUIMask.alpha = isVisble ? 1 : 0;
     }
     public override void OnDestroy()
     {

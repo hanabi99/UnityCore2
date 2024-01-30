@@ -17,9 +17,10 @@ public class LoginWIndow : WindowBase
     //调用机制与Mono Awake一致
     public override void Init()
     {
+        base.Init();
         //dataCompt = gameObject.GetComponent<LoginWIndowDataComponent>();
         //dataCompt.InitComponent(this);
-        //base.OnAwake();
+
     }
     //物体显示时执行
     public override void ShowMe()
