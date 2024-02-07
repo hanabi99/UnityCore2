@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using MyGameFrameWork;
+using UnityEditor.PackageManager.UI;
 
 public class UIMrg : Singleton<UIMrg>
 {
@@ -72,7 +73,7 @@ public class UIMrg : Singleton<UIMrg>
             mAllWindowDic.Add(wndName, windowBase);
             mAllWindowList.Add(windowBase);
             mVisibleWindowList.Add(windowBase);
-            //SetWidnowMaskVisible();
+            SetWidnowMaskVisible();
             return windowBase;
         }
         Debug.LogError("没有加载到对应的窗口 窗口名字：" + wndName);
@@ -116,7 +117,7 @@ public class UIMrg : Singleton<UIMrg>
                 mVisibleWindowList.Add(window);
                 window.transform.SetAsLastSibling();
                 window.SetActive(true);
-                //SetWidnowMaskVisible();
+                SetWidnowMaskVisible();
                 window.ShowMe();
             }
             return window;
@@ -145,7 +146,7 @@ public class UIMrg : Singleton<UIMrg>
         {
             mVisibleWindowList.Remove(window);
             window.SetActive(false);//隐藏弹窗物体
-            //SetWidnowMaskVisible();
+            SetWidnowMaskVisible();
             window.HideMe();
         }
         //在出栈的情况下，上一个界面隐藏时，自动打开栈种的下一个界面
@@ -196,7 +197,54 @@ public class UIMrg : Singleton<UIMrg>
         }
         Resources.UnloadUnusedAssets();
     }
-
+    /// <summary>
+    /// 设置单遮罩
+    /// </summary>
+    private void SetWidnowMaskVisible()
+    {
+        if (!UISetting.Instance.SINGMASK_SYSTEM)
+        {
+            return;
+        }
+        WindowBase MaxOrderwindow = null;//最大渲染层级的窗口
+        int maxOrder = 0;//最大渲染层级
+        int maxIndex = 0;//最大排序下标 在相同父节点下的位置下标
+        //1.关闭所有窗口的Mask 设置为不可见
+        //2.从所有可见窗口中找到一个层级最大的窗口，把Mask设置为可见
+        for (int i = 0; i < mVisibleWindowList.Count; i++)
+        {
+            WindowBase windowBase = mVisibleWindowList[i];
+            if(windowBase != null && windowBase.gameObject != null)
+            {
+                windowBase.SetMaskVisible(false);
+                if (MaxOrderwindow == null)
+                {
+                    MaxOrderwindow = windowBase;
+                    maxOrder = windowBase.canvas.sortingOrder;
+                    maxIndex = windowBase.transform.GetSiblingIndex();
+                }
+                else
+                {
+                    //找到最大渲染层级的窗口，拿到它
+                    if (maxOrder < windowBase.canvas.sortingOrder)
+                    {
+                        MaxOrderwindow = windowBase;
+                        maxOrder = windowBase.canvas.sortingOrder;
+                    }
+                    //如果两个窗口的渲染层级相同，就找到同节点下最靠下一个物体，优先渲染Mask
+                    else if (maxOrder == windowBase.canvas.sortingOrder && maxIndex < windowBase.transform.GetSiblingIndex())
+                    {
+                        MaxOrderwindow = windowBase;
+                        maxIndex = windowBase.transform.GetSiblingIndex();
+                    }
+                }
+            }
+        }
+        if (MaxOrderwindow != null)
+        {
+            MaxOrderwindow.SetMaskVisible(true);
+        }
+    }
 
     /// <summary>
     /// 实例化界面
@@ -207,7 +255,7 @@ public class UIMrg : Singleton<UIMrg>
     {
         //自己搞时要改成AB或者Adreesable
         GameObject window = GameObject.Instantiate<GameObject>(Resources.Load<GameObject>("Window/" + wndName), mUIRoot);
-        window.transform.SetParent(mUIRoot);
+        //window.transform.SetParent(mUIRoot);
         window.transform.localScale = Vector3.one;
         window.transform.localPosition = Vector3.zero;
         window.transform.rotation = Quaternion.identity;

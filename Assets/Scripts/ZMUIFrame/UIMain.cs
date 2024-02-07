@@ -18,7 +18,22 @@ public class UIMain : MonoBehaviour
             //UIMrg.GetInstance().DestroyWinodw<LoginWIndow>();
             //UIMrg.GetInstance().DestroyAllWindow();
            //Debug.Log (UISetting.Instance.SINGMASK_SYSTEM);
-
+        }
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            UIMrg.GetInstance().PopUpWindow<AccountWIndow>();
+        }
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            UIMrg.GetInstance().PopUpWindow<SignupWIndow>();
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            UIMrg.GetInstance().HideWindow<AccountWIndow>();
+        }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            UIMrg.GetInstance().HideWindow<SignupWIndow>();
         }
     }
 }
