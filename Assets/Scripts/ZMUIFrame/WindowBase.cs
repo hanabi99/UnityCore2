@@ -1,7 +1,9 @@
+using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -20,6 +22,8 @@ public class WindowBase : WindowBehaviour
 
     protected Transform mUIContent;
 
+    protected bool mDisableAnim = false;//禁用动画
+
     /// <summary>
     /// 初始化基类组件
     /// </summary>
@@ -29,7 +33,6 @@ public class WindowBase : WindowBehaviour
         mUIMask = transform.Find("UIMask").GetComponent<CanvasGroup>();
         mUIContent = transform.Find("UIContent").transform;
     }
-
 
     /// <summary>
     /// 按钮添加事件
@@ -126,6 +129,7 @@ public class WindowBase : WindowBehaviour
     public override void ShowMe()
     {
         base.ShowMe();
+        ShowAnimation();
     }
     public override void OnUpdate()
     {
@@ -134,9 +138,39 @@ public class WindowBase : WindowBehaviour
     public override void HideMe()
     {
         base.HideMe();
-        UIMrg.GetInstance().HideWindow(name);
+        HideAnimation();
     }
 
+    /// <summary>
+    /// 打开窗口动画
+    /// </summary>
+    public void ShowAnimation()
+    {
+        //基础弹窗不需要动画
+        if (canvas.sortingOrder > 90 && mDisableAnim == false)
+        {
+            //Mask动画
+            mUIMask.alpha = 0;
+            mUIMask.DOFade(1, 0.2f);
+            //缩放动画
+            mUIContent.localScale = Vector3.one * 0.8f;
+            mUIContent.DOScale(Vector3.one, 0.3f).SetEase(Ease.OutBack);
+        }
+    }
+    public void HideAnimation()
+    {
+        if (canvas.sortingOrder > 90 && mDisableAnim == false)
+        {
+            mUIContent.DOScale(Vector3.one * 1.1f, 0.2f).SetEase(Ease.OutBack).OnComplete(() =>
+            {
+                UIMrg.GetInstance().HideWindow(name);
+            });
+        }
+        else
+        {
+            UIMrg.GetInstance().HideWindow(name);
+        }
+    }
     public override void SetActive(bool Active)
     {
         base.SetActive(Active);
