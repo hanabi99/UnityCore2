@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using MyGameFrameWork;
 using UnityEditor.PackageManager.UI;
+using System;
 
 public class UIMrg : Singleton<UIMrg>
 {
@@ -10,7 +11,7 @@ public class UIMrg : Singleton<UIMrg>
 
     private Transform mUIRoot;
 
-    //private WindowConfig mWindowConfig;
+    private WindowConfig mWindowConfig;
 
     private Dictionary<string, WindowBase> mAllWindowDic = new Dictionary<string, WindowBase>();
 
@@ -26,10 +27,10 @@ public class UIMrg : Singleton<UIMrg>
     {
         mUICamera = Camera.main;
         mUIRoot = GameObject.Find("UIRoot").transform;
-        //mWindowConfig = Resources.Load<WindowConfig>("WindowConfig");
+        mWindowConfig = Resources.Load<WindowConfig>("WindowConfig");
         //在手机上不会触发调用
 #if UNITY_EDITOR
-        //mWindowConfig.GeneratorWindowConfig();
+        mWindowConfig.GeneratorWindowConfig();
 #endif
     }
     /// <summary>
@@ -49,6 +50,23 @@ public class UIMrg : Singleton<UIMrg>
 
         T t = new T();
         return InitializeWindow(t, wndName) as T;
+    }
+
+    /// <summary>
+    /// 堆栈系统弹出
+    /// </summary>
+    /// <param name="window"></param>
+    /// <returns></returns>
+    private WindowBase PopUpWindow(WindowBase window)
+    {
+        System.Type type = window.GetType();
+        string wndName = type.Name;
+        WindowBase wnd = GetWindow(wndName);
+        if (wnd != null)
+        {
+            return ShowWindow(wndName);
+        }
+        return InitializeWindow(window, wndName);
     }
     private WindowBase InitializeWindow(WindowBase windowBase, string wndName)
     {
@@ -127,7 +145,7 @@ public class UIMrg : Singleton<UIMrg>
         return null;
     }
 
-    private void HideWindow(string wndName)
+    public void HideWindow(string wndName)
     {
         WindowBase window = GetWindow(wndName);
         HideWindow(window);
@@ -150,7 +168,7 @@ public class UIMrg : Singleton<UIMrg>
             window.HideMe();
         }
         //在出栈的情况下，上一个界面隐藏时，自动打开栈种的下一个界面
-        //PopNextStackWindow(window);
+        PopNextStackWindow(window);
     }
     private void DestroyWindow(string wndName)
     {
@@ -172,12 +190,12 @@ public class UIMrg : Singleton<UIMrg>
                 mVisibleWindowList.Remove(window);
             }
             window.SetActive(false);
-            //SetWidnowMaskVisible();
+            SetWidnowMaskVisible();
             window.HideMe();
             window.OnDestroy();
             GameObject.Destroy(window.gameObject);
             //在出栈的情况下，上一个界面销毁时，自动打开栈种的下一个界面
-            //PopNextStackWindow(window);
+            PopNextStackWindow(window);
         }
     }
     /// <summary>
@@ -254,12 +272,92 @@ public class UIMrg : Singleton<UIMrg>
     private GameObject TempLoadWindow(string wndName)
     {
         //自己搞时要改成AB或者Adreesable
-        GameObject window = GameObject.Instantiate<GameObject>(Resources.Load<GameObject>("Window/" + wndName), mUIRoot);
+        GameObject window = GameObject.Instantiate<GameObject>(Resources.Load<GameObject>(mWindowConfig.GetWindowPath(wndName)), mUIRoot);
         //window.transform.SetParent(mUIRoot);
         window.transform.localScale = Vector3.one;
         window.transform.localPosition = Vector3.zero;
         window.transform.rotation = Quaternion.identity;
         window.name = wndName;
         return window;
+    }
+
+    /// <summary>
+    /// 进栈一个界面
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="popCallBack"></param>
+    public void PushWindowToStack<T>(Action<WindowBase> popCallBack = null) where T : WindowBase, new()
+    {
+        WindowBase wndBase = null;
+        try
+        {
+            wndBase = mAllWindowDic[typeof(T).Name];
+        }
+        catch (Exception e)
+        {
+            wndBase = new T();
+        }
+        //T wndBase = new T();
+        wndBase.PopStackListener = popCallBack;
+        mWindowStack.Enqueue(wndBase);
+    }
+    /// <summary>
+    /// 弹出堆栈中第一个弹窗
+    /// </summary>
+    public void StartPopFirstStackWindow()
+    {
+        if (mStartPopStackWndStatus == true) return;//进入弹栈流程了不会在去显示Window 而是只是压栈
+        mStartPopStackWndStatus = true;//可以显示Window
+        PopStackWindow();
+    }
+
+    /// <summary>
+    /// 弹出堆栈中的下一个窗口
+    /// </summary>
+    /// <param name="windowBase"></param>
+    private void PopNextStackWindow(WindowBase windowBase)
+    {
+        if (windowBase != null && mStartPopStackWndStatus && windowBase.PopStack)
+        {
+            windowBase.PopStack = false;
+            PopStackWindow();
+        }
+    }
+    /// <summary>
+    /// 压入并且弹出堆栈弹窗
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="popCallBack"></param>
+    public void PushAndPopStackWindow<T>(Action<WindowBase> popCallBack = null) where T : WindowBase, new()
+    {
+        PushWindowToStack<T>(popCallBack);
+        StartPopFirstStackWindow();
+    }
+
+    /// <summary>
+    /// 弹出堆栈弹窗
+    /// </summary>
+    /// <returns></returns>
+    public bool PopStackWindow()
+    {
+        if (mWindowStack.Count > 0)
+        {
+            WindowBase window = mWindowStack.Dequeue();
+            WindowBase popWindow = PopUpWindow(window);
+            popWindow.PopStackListener = window.PopStackListener;
+            popWindow.PopStack = true;
+            popWindow.PopStackListener?.Invoke(popWindow);
+            popWindow.PopStackListener = null;
+            return true;
+        }
+        else
+        {
+            mStartPopStackWndStatus = false;
+            return false;
+        }
+    }
+    public void ClearStackWindows()
+    {
+        mWindowStack.Clear();
     }
 }

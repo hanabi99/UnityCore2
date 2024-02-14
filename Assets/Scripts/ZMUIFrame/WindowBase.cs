@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ public class WindowBase : WindowBehaviour
 {
     private List<Button> mButtonList = new List<Button>();
 
-    private List<Toggle> mTogglrList = new List<Toggle>();
+    private List<Toggle> mToggleList = new List<Toggle>();
 
     private List<InputField> mInputFieldList = new List<InputField>();
 
@@ -56,9 +57,9 @@ public class WindowBase : WindowBehaviour
     {
         if (toggle != null)
         {
-            if (!mTogglrList.Contains(toggle))
+            if (!mToggleList.Contains(toggle))
             {
-                mTogglrList.Add(toggle);
+                mToggleList.Add(toggle);
             }
             toggle.onValueChanged.RemoveAllListeners();
             toggle.onValueChanged.AddListener((isOn) =>
@@ -101,7 +102,7 @@ public class WindowBase : WindowBehaviour
     /// </summary>
     public void RemoveAllToggleListener()
     {
-        foreach (var item in mTogglrList)
+        foreach (var item in mToggleList)
         {
             item.onValueChanged.RemoveAllListeners();
         }
@@ -133,6 +134,7 @@ public class WindowBase : WindowBehaviour
     public override void HideMe()
     {
         base.HideMe();
+        UIMrg.GetInstance().HideWindow(name);
     }
 
     public override void SetActive(bool Active)
@@ -158,7 +160,7 @@ public class WindowBase : WindowBehaviour
         RemoveAllInputFieldListener();
         RemoveAllToggleListener();
         mButtonList.Clear();
-        mTogglrList.Clear();
+        mToggleList.Clear();
         mInputFieldList.Clear();
     }
 }

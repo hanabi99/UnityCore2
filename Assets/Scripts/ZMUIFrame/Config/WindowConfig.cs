@@ -14,7 +14,7 @@ public class WindowConfig : ScriptableObject
         int count = 0;
         foreach (var item in windowRootArr)
         {
-            string[] filePathArr =  Directory.GetFiles(Application.dataPath + "/ZMUIFrameWork/Resources/" + item, "*.prefab", SearchOption.AllDirectories);
+            string[] filePathArr =  Directory.GetFiles(Application.dataPath + "/Resources/" + item, "*.prefab", SearchOption.AllDirectories);
             foreach (var path in filePathArr)
             {
                 if (path.EndsWith(".meta"))
@@ -34,7 +34,7 @@ public class WindowConfig : ScriptableObject
         foreach (var item in windowRootArr)
         {
             //获取预制体文件夹读取路径
-            string floder = Application.dataPath + "/ZMUIFrameWork/Resources/" + item;
+            string floder = Application.dataPath + "/Resources/" + item;
             //获取文件夹下的所有Prefab文件
             string[] filePathArr = Directory.GetFiles(floder,"*.prefab",SearchOption.AllDirectories);
             foreach (var path in filePathArr)

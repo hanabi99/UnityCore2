@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,10 @@ public class WindowBehaviour
     public Canvas canvas { get; set; }
     public string name { get; set; }
     public bool isActive { get; set; }
+
+    public bool PopStack { get; set; }//是否是通过堆栈系统弹出的弹窗
+
+    public Action<WindowBase> PopStackListener { get; set; }
 
     public virtual void Init() { }
     public virtual void ShowMe() { }

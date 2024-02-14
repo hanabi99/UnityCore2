@@ -7,19 +7,20 @@
 ---------------------------------*/
 using UnityEngine.UI;
 using UnityEngine;
+using ZMUIFrameWork;
 
 public class LoginWIndow : WindowBase
 {
 
-    //public LoginWIndowDataComponent dataCompt;
+    public LoginWIndowDataComponent dataCompt;
 
     #region 声明周期函数
     //调用机制与Mono Awake一致
     public override void Init()
     {
         base.Init();
-        //dataCompt = gameObject.GetComponent<LoginWIndowDataComponent>();
-        //dataCompt.InitComponent(this);
+        dataCompt = gameObject.GetComponent<LoginWIndowDataComponent>();
+        dataCompt.InitComponent(this);
 
     }
     //物体显示时执行
@@ -45,8 +46,8 @@ public class LoginWIndow : WindowBase
     #region UI组件事件
     public void OnLoginButtonClick()
     {
-        //UIMrg.GetInstance().PopUpWindow<HallWindow>();
-        //HideWindow();
+        UIMrg.GetInstance().PopUpWindow<HallWindow>();
+        HideMe();
     }
     #endregion
 

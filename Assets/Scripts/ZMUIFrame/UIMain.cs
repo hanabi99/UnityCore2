@@ -21,19 +21,22 @@ public class UIMain : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            UIMrg.GetInstance().PopUpWindow<AccountWIndow>();
+            UIMrg.GetInstance().PushAndPopStackWindow<ChatWIndow>();
+            Debug.Log("压栈并弹出ChatWIndow");
         }
         if (Input.GetKeyDown(KeyCode.W))
         {
-            UIMrg.GetInstance().PopUpWindow<SignupWIndow>();
+            //UIMrg.GetInstance().PopUpWindow<SignupWIndow>();
+            UIMrg.GetInstance().PushAndPopStackWindow<UserInfoWIndow>();
+            Debug.Log("压栈并弹出UserInfoWIndow");
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
-            UIMrg.GetInstance().HideWindow<AccountWIndow>();
+           // UIMrg.GetInstance().HideWindow<AccountWIndow>();
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
-            UIMrg.GetInstance().HideWindow<SignupWIndow>();
+           // UIMrg.GetInstance().HideWindow<SignupWIndow>();
         }
     }
 }
