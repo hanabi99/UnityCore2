@@ -9,6 +9,7 @@ public class UIMain : MonoBehaviour
         UIMrg.GetInstance().Initialize();
         UIMrg.GetInstance().PopUpWindow<LoginWIndow>();
         UIMrg.GetInstance().GetWindow<LoginWIndow>().Test();
+        UIMrg.GetInstance().PreLoadWindow<HallWindow>();
     }
     private void Update()
     {

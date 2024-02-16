@@ -177,6 +177,7 @@ public class WindowBase : WindowBehaviour
         //gameObject.SetActive(Active);
         mCanvasGroup.alpha = Active ? 1 : 0;
         mCanvasGroup.blocksRaycasts = Active;
+        mCanvasGroup.interactable = Active;
         isActive = Active;
     }
     public void SetMaskVisible(bool isVisble)

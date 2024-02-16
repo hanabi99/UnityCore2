@@ -34,6 +34,37 @@ public class UIMrg : Singleton<UIMrg>
 #endif
     }
     /// <summary>
+    /// 预加载，只加载物体，不调用生命周期
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    public void PreLoadWindow<T>() where T : WindowBase, new()
+    {
+        System.Type type = typeof(T);
+        string wndName = type.Name;
+        T windowBase = new T();
+        //克隆界面，初始化界面信息
+        //1.生成对应的窗口预制体
+        GameObject nWnd = TempLoadWindow(wndName);
+        //2.初始出对应管理类
+        if (nWnd != null)
+        {
+            windowBase.gameObject = nWnd;
+            windowBase.transform = nWnd.transform;
+            windowBase.canvas = nWnd.GetComponent<Canvas>();
+            windowBase.canvas.worldCamera = mUICamera;
+            windowBase.name = nWnd.name;
+            windowBase.Init();
+            windowBase.SetActive(false);
+            RectTransform rectTrans = nWnd.GetComponent<RectTransform>();
+            rectTrans.anchorMax = Vector2.one;
+            rectTrans.offsetMax = Vector2.zero;
+            rectTrans.offsetMin = Vector2.zero;
+            mAllWindowDic.Add(wndName, windowBase);
+            mAllWindowList.Add(windowBase);
+        }
+        Debug.Log("预加载窗口 窗口名字：" + wndName);
+    }
+    /// <summary>
     /// 弹出一个窗口
     /// </summary>
     /// <typeparam name="T"></typeparam>
